@@ -5,7 +5,7 @@ class HeaderComponent extends React.Component{
     return (
       <header>
           <img src="/images/shopping-bag.png" className="logo"/>
-          <h1> Mummoo Grocery </h1>
+          <h1> My Grocery </h1>
           <div className="search">
               <form>
                   <input type="text" placeholder="Search for anything such as Horlicks, Surf etc.."/>
