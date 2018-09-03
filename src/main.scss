@@ -1,0 +1,482 @@
+$darkPurple : #43425D;
+$primaryRed : #FF6565;
+$secondaryGreen : #2BC38A;
+$black : #000000;
+$white : #FFFFFF;
+$lightgray: #f2f2f2;
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900');
+
+*{
+  margin : 0px;
+  padding: 0px;
+  box-sizing : border-box;
+}
+
+body{
+  font-family: 'Roboto',sans-serif;
+  font-size: 62.5%;
+  overflow-x:hidden;
+
+  &::-webkit-scrollbar {
+    width: 0.5em;
+  }
+  &::-webkit-scrollbar-track {
+
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $darkPurple;
+    border-radius: 2rem;
+  }
+}
+
+.btn{
+  background: $black;
+  box-shadow: none;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  font-weight: 500;
+  font-size: .9rem;
+  border-radius: .3rem;
+  cursor: pointer;
+  color: $lightgray;
+
+  &.btn-primary{
+    background: $primaryRed;
+    &:hover{
+      background: darken($primaryRed,5);
+    }
+  }
+  &.btn-secondary{
+    background: $darkPurple;
+    &:hover{
+      background: darken($darkPurple,5);
+    }
+  }
+  &.btn-outlined{
+    background: transparent;
+    border:1px solid $white;
+  }
+}
+
+.has-hover{
+  .show-on-hover{
+    display: none;
+  }
+  &:hover .show-on-hover{
+    display:block;
+  }
+}
+
+.home-page{
+    header{
+      background: $white;
+      display: flex;
+      align-items: center;
+      padding: 0.8rem;
+      box-shadow: 2px 2px 10px 1px lightgray;
+      position: relative;
+      z-index: 4;
+
+      .logo{
+        width: 2rem;
+        height: 2rem;
+        margin-right: .5rem;
+      }
+
+      h1{
+        margin-right: 2rem;
+        font-size: 1.2rem;
+        color: $darkPurple;
+      }
+      .search{
+        display: inline-block;
+
+        input[type=text]{
+          padding: 0.9rem;
+          border-radius: .3rem;
+          width: 25rem;
+          font-size: 0.9rem;
+          background: rgba($lightgray,0.7);
+          border: none;
+          margin-left: 0.3rem;
+          border:1px dotted lightgray;
+
+          &:focus{
+            background:$white;
+            width: 40rem;
+          }
+        }
+      }
+      .action-buttons{
+        margin-left: auto;
+
+        .btn{
+          display: inline-block;
+          margin-left:.8rem;
+
+          &.btn-review-cart .count{
+              border-radius: 2rem;
+              background-color: rgba($black,0.5);
+              margin-left: 1rem;
+              padding: .3rem .5rem;
+          }
+        }
+      }
+  }
+
+  main{
+    display: flex;
+    height: calc(100% - 74px);
+    min-height: calc(100vh - 74px);
+
+    aside.sidebar{
+      background-color: darken($darkPurple,10);
+      min-width: 15rem;
+      max-width: 15rem;
+      position: relative;
+      z-index: 5;
+
+      ul{
+        list-style-type: none;
+        height: calc(100vh - 180px);
+        overflow-y: auto;
+
+        &::-webkit-scrollbar {
+          width: 0.5em;
+        }
+        &::-webkit-scrollbar-track {
+
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: $darkPurple;
+          border-radius: 2rem;
+        }
+
+        & > .menu-item{
+          color: rgba($white,0.6);
+          padding: 1rem;
+          padding-left: 1.5rem;
+          font-weight: 300;
+          font-size: 0.9rem;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          position: relative;
+          border-left:3px solid transparent;
+          text-decoration: none;
+
+          &.active,&.active:hover{
+            background: rgba($black,0.3);
+            color: rgba($white,1);
+            border-left-color:$primaryRed;
+
+            .icon{
+              opacity: 1;
+            }
+          }
+          &:hover{
+            background: rgba($white,0.1);
+          }
+
+          .icon{
+            width: 1.5rem;
+            margin-right: 1rem;
+            opacity: 0.7;
+          }
+        }
+
+      }
+
+      .footer{
+          display: flex;
+          padding: 2rem;
+          .settings{
+            flex-grow:1;
+          }
+      }
+    }
+
+    .right-pane{
+      flex-grow:1;
+      background: $lightgray;
+      position: relative;
+
+                          .catalog{
+                            display: flex;
+                            margin: .5rem 2rem;
+                            margin-right: 0rem;
+                            align-content: flex-start;
+                            flex-wrap: wrap;
+                            height: calc(100vh - 90px);
+                            overflow-y:auto;
+
+                            &::-webkit-scrollbar {
+                              width: 0.5em;
+                            }
+                            &::-webkit-scrollbar-track {
+
+                            }
+                            &::-webkit-scrollbar-thumb {
+                              background-color: lightgray;
+                              border-radius: 2rem;
+                            }
+
+                                              .product{
+                                                width: 12rem;
+                                                height: 12rem;
+                                                background: $white;
+                                                display: flex;
+                                                flex-direction: column;
+                                                align-items : center;
+                                                margin-right: 1.5rem;
+                                                margin-top: 1.5rem;
+                                                border-bottom: 0.3rem solid transparent;
+                                                position: relative;
+                                                cursor: pointer;
+                                                box-shadow: 2px 2px 10px 1px rgba(lightgray,0.5);
+
+                                                .show-on-hover{
+                                                  position: absolute;
+                                                  left: 0;
+                                                  top: 0;
+                                                  width: 100%;
+                                                  height: 100%;
+
+                                                  .bg{
+                                                    background: $black;
+                                                    position: absolute;
+                                                    left: 0;
+                                                    top: 0;
+                                                    width: 100%;
+                                                    height: 100%;
+                                                    opacity:0.7;
+                                                  }
+
+                                                  button{
+                                                      position: absolute;
+                                                      top:50%;
+                                                      left:50%;
+                                                      margin-left:-3.5rem;
+                                                      margin-top:-1.5rem;
+                                                      color:$white;
+                                                      background:$primaryRed;
+                                                      border-color: $primaryRed;
+                                                  }
+                                                }
+
+                                                &:hover{
+                                                  border-bottom-color: $primaryRed;
+                                                }
+                                                &:hover::after{
+                                                  display: block;
+                                                }
+
+
+                                                &.added{
+                                                  border-bottom:.2rem solid $secondaryGreen;
+
+                                                  .show-on-hover{
+                                                    display: none;
+                                                  }
+
+                                                  &::before{
+                                                    position: absolute;
+                                                    content: '';
+                                                    left: 0px;
+                                                    top: 0px;
+                                                    background-size: 100%;
+                                                    border:.7rem solid $secondaryGreen;
+                                                    border-bottom-color: transparent;
+                                                    border-right-color: transparent;
+                                                    z-index: 1;
+                                                  }
+                                                }
+
+                                                .header{
+                                                  font-weight: 700;
+                                                  font-size: 0.9rem;
+                                                  margin: 1rem;
+                                                  display: flex;
+
+                                                  img{
+                                                    width: 1.2rem;
+                                                    position: absolute;
+                                                    right: 1rem;
+                                                    cursor: pointer;
+                                                  }
+                                                }
+                                                .image{
+                                                  width: 5rem;
+                                                  margin-top: 1rem;
+                                                }
+                                              }
+                          }
+                          .review-cart{
+                            right:-30rem;
+                          }
+
+        }
+    }
+}
+
+.review-cart,.print-preview{
+    position: absolute;
+    top:0%;
+    height: 100%;
+    width: 30rem;
+    background: $white;
+    box-shadow:.2rem .1rem 2rem .2rem #d3d3d3;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    padding-bottom: .5rem;
+
+    &.animate-slide-in{
+      animation: slideInCart .3s;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-in-out;
+    }
+
+    .empty-msg{
+      margin-top: 3rem;
+      font-size: 1rem;
+      color: gray;
+      text-align: center;
+    }
+
+    .align-top-layout{
+              display: flex;
+              flex-direction: column;
+              justify-content: flex-start;
+              flex-grow: 1;
+
+              .header{
+                    position: relative;
+                    .tag{
+                        color: gray;
+                        font-size: 0.8rem;
+                        margin-top: 1rem;
+                    }
+                    .btn-close{
+                      position: absolute;
+                      width: .9rem;
+                      top:-.5rem;
+                      right: -.5rem;
+                      cursor: pointer;
+                      opacity: .8;
+                      :hover{
+                        opacity: 1;
+                      }
+                    }
+              }
+
+              .table-header{
+                display: flex;
+                min-height: 2rem;
+                margin-top: 1rem;
+                border-bottom: 2px solid $black;
+                span{
+                  font-size: .9rem;
+                  font-weight: bold;
+                  flex-grow: 1;
+                  &:last-child{
+                    text-align: right;
+                    padding-right: 4rem;
+                  }
+                }
+              }
+
+              .content{
+                    overflow-y: auto;
+                    border-bottom:1px dotted lightgray;
+
+                    &::-webkit-scrollbar {
+                      width: 0.5em;
+                    }
+                    &::-webkit-scrollbar-track {
+
+                    }
+                    &::-webkit-scrollbar-thumb {
+                      background-color: lightgray;
+                      border-radius: 2rem;
+                    }
+
+                    table{
+                        width: 100%;
+                               tbody{
+                                 tr{
+                                   font-weight: 700;
+                                    td{
+                                       padding: 1.2rem;
+                                       font-size: .9rem;
+                                       .qty{
+                                         min-width:3rem;
+                                         display: inline-block;
+                                       }
+                                       img{
+                                         width: 1.7rem;
+                                         margin: 0rem .9rem;
+                                         vertical-align: middle;
+                                         opacity: .7;
+                                         cursor: pointer;
+                                         display: inline-block;
+                                       }
+                                       img:hover{
+                                         opacity: 1;
+                                       }
+                                       img.remove{
+                                         width:1rem;
+                                         opacity:.3;
+                                         margin-left: 0rem;
+                                         &:hover{
+                                           opacity: .5;
+                                         }
+                                       }
+                                    }
+                                    & td:last-child{
+                                      width:10rem;
+                                      text-align: center;
+                                      padding: 0rem;
+                                    }
+                                    &:nth-child(even) td{
+                                      background-color: #f6f6f6;
+                                    }
+                                 }
+                               }
+                    }
+              }
+      }
+    .footer{
+      margin-top: .5rem;
+      padding: 0rem 8rem;
+      .btn-secondary{
+          text-align: center;
+      }
+    }
+
+}
+.print-preview{
+  box-shadow: none;
+  .align-top-layout .content{
+    overflow-y: visible !important;
+    table tbody tr td{
+      padding: 0.8rem;
+    }
+  }
+}
+
+@keyframes slideInCart{
+  0%{
+    right:-30rem;
+  }
+  100%{
+    right:0rem;
+  }
+}
+@media print {
+  body {
+    overflow: visible !important;
+  }
+}
